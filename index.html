@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>微博 - 测试版</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#">
+        <span class="brand-logo">微</span>
+        <span class="brand-name">微博</span>
+        <span class="brand-tag">测试版</span>
+      </a>
+      <div class="search-box">
+        <input id="searchInput" type="text" placeholder="搜索微博、话题、用户">
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="topbar-user">
+        <span class="icon-btn" title="消息">✉️</span>
+        <span class="icon-btn" title="设置">⚙️</span>
+        <div class="avatar avatar-sm" title="kemmy-du">K</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- 左侧导航 -->
+    <aside class="nav-left">
+      <nav class="card nav-card">
+        <a class="nav-item active" href="#"><span class="nav-ico">🏠</span>首页</a>
+        <a class="nav-item" href="#"><span class="nav-ico">🔥</span>热门</a>
+        <a class="nav-item" href="#"><span class="nav-ico">👀</span>关注</a>
+        <a class="nav-item" href="#"><span class="nav-ico">💬</span>消息</a>
+        <a class="nav-item" href="#"><span class="nav-ico">⭐</span>收藏</a>
+        <a class="nav-item" href="#"><span class="nav-ico">👤</span>我的</a>
+      </nav>
+      <div class="card nav-foot">
+        <p>这是一个纯前端测试版微博</p>
+        <p class="dim">数据保存在浏览器 localStorage</p>
+      </div>
+    </aside>
+
+    <!-- 中间信息流 -->
+    <section class="feed-col">
+      <!-- 发布框 -->
+      <div class="card composer">
+        <div class="avatar">K</div>
+        <div class="composer-main">
+          <textarea id="postInput" maxlength="140" placeholder="有什么新鲜事想分享给大家？"></textarea>
+          <div class="composer-image" id="imageRow" hidden>
+            <input id="imageInput" type="text" placeholder="粘贴图片链接（可选）">
+            <button class="btn-text" id="clearImageBtn" type="button">移除</button>
+          </div>
+          <div class="composer-bar">
+            <div class="composer-tools">
+              <button class="tool-btn" id="imageBtn" type="button" title="图片">🖼️</button>
+              <button class="tool-btn" id="topicBtn" type="button" title="话题">#</button>
+              <button class="tool-btn" id="emojiBtn" type="button" title="表情">😀</button>
+            </div>
+            <div class="composer-right">
+              <span class="char-count" id="charCount">140</span>
+              <button class="btn-publish" id="publishBtn" type="button" disabled>发布</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--  tabs -->
+      <div class="feed-tabs card">
+        <span class="tab active" data-tab="all">全部</span>
+        <span class="tab" data-tab="original">原创</span>
+        <span class="tab" data-tab="hot">热门</span>
+      </div>
+
+      <!-- 微博列表 -->
+      <div id="feed"></div>
+
+      <div class="feed-end" id="feedEnd" hidden>
+        <span>—— 没有更多微博了 ——</span>
+      </div>
+    </section>
+
+    <!-- 右侧栏 -->
+    <aside class="side-right">
+      <div class="card profile-card">
+        <div class="profile-cover"></div>
+        <div class="avatar avatar-lg">K</div>
+        <h3 class="profile-name">kemmy-du <span class="badge-v" title="测试认证">✓</span></h3>
+        <p class="profile-bio">量化交易 · AI 工程 · 自动化</p>
+        <div class="profile-stats">
+          <div class="pstat"><b id="statPosts">0</b><span>微博</span></div>
+          <div class="pstat"><b>128</b><span>关注</span></div>
+          <div class="pstat"><b>256</b><span>粉丝</span></div>
+        </div>
+      </div>
+      <div class="card trending-card">
+        <h4 class="card-title">热门话题</h4>
+        <ul class="trending-list">
+          <li><span class="trend-rank hot">1</span><a href="#">#GitHub Pages 部署#</a><span class="trend-heat">3.2万</span></li>
+          <li><span class="trend-rank hot">2</span><a href="#">#量化交易入门#</a><span class="trend-heat">2.1万</span></li>
+          <li><span class="trend-rank">3</span><a href="#">#AI 编程助手#</a><span class="trend-heat">1.8万</span></li>
+          <li><span class="trend-rank">4</span><a href="#">#Python 实战#</a><span class="trend-heat">9865</span></li>
+          <li><span class="trend-rank">5</span><a href="#">#今天写了什么代码#</a><span class="trend-heat">6521</span></li>
+        </ul>
+      </div>
+      <div class="card foot-card">
+        <p class="dim">测试微博 · Powered by GitHub Pages</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 轻提示 -->
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
